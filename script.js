@@ -26,14 +26,14 @@ function generatePassword() // added function
     else
       window.alert("Invalid input! Try again.");
   }
+  var arr = [];
   //prompt user for lowercase characters
-  var low = false;
   while(true)
   {
     var ans = window.prompt("Do you want lowercase characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
-      low = true;
+      arr.push(lowercase.split(''));
       break;
     }
     else if(ans == "no")
@@ -42,13 +42,13 @@ function generatePassword() // added function
       window.alert("Invalid input! Try again.");
   }
   //prompt user for uppercase characters
-  var up = false;
+ 
   while(true)
   {
     var ans = window.prompt("Do you want uppercase characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
-      up = true;
+      arr.push(uppercase.split(''));
       break;
     }
     else if(ans == "no")
@@ -57,13 +57,13 @@ function generatePassword() // added function
       window.alert("Invalid input! Try again.");
   }
   //prompt user for numeric characters
-  var num = false;
+ 
   while(true)
   {
     var ans = window.prompt("Do you want numeric characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
-      num = true;
+      arr.push(numbers.split(''));
       break;
     }
     else if(ans== "no")
@@ -72,13 +72,13 @@ function generatePassword() // added function
       window.alert("Invalid input! Try again.");
   }
   //prompt user for special characters  !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-  var spec = false;
+
   while(true)
   {
     var ans = window.prompt("Do you want special characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
-      spec = true;
+      arr.push(specialChars.split(''));
       break;
     }
     else if(ans== "no")
@@ -87,8 +87,17 @@ function generatePassword() // added function
       window.alert("Invalid input! Try again.");
   }
 
-
-  return length;
+  //creating the password
+  for(var i = 0; i<arr.length; i++)
+    console.log(arr[i]);
+  var pwd = "";
+  for(var i = 0; i<length; i++)
+  {
+    var ind = Math.floor(Math.random()*arr.length);
+    var secInd = Math.floor(Math.random()*arr[ind].length);
+    pwd+= arr[ind][secInd];
+  }
+  return pwd;
 }
 // Write password to the #password input
 function writePassword() {
