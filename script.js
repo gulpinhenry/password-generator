@@ -86,6 +86,11 @@ function generatePassword() // added function
     else
       window.alert("Invalid input! Try again.");
   }
+  if(arr.length == 0)
+  {
+    window.alert("You didn't choose any option... Please refill the form again.");
+    return generatePassword();
+  }
 
   //creating the password
   for(var i = 0; i<arr.length; i++)
