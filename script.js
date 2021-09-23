@@ -7,6 +7,10 @@ var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "1234567890";
 var specialChars = "!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~\\";
 
+/**
+ * Certainly not the most optimal code, but it is readable in the sense that each section is split up, more strictly defined data types/variables
+ * @returns generated password
+ */
 function generatePassword() // added function
 {
   var length = -1;
@@ -26,7 +30,7 @@ function generatePassword() // added function
   var low = false;
   while(true)
   {
-    var ans = window.prompt("Do you want lowercase characters? (yes/no)", yes).toLowerCase();
+    var ans = window.prompt("Do you want lowercase characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
       low = true;
@@ -41,7 +45,7 @@ function generatePassword() // added function
   var up = false;
   while(true)
   {
-    var ans = window.prompt("Do you want uppercase characters? (yes/no)", yes).toLowerCase();
+    var ans = window.prompt("Do you want uppercase characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
       up = true;
@@ -56,7 +60,7 @@ function generatePassword() // added function
   var num = false;
   while(true)
   {
-    var ans = window.prompt("Do you want numeric characters? (yes/no)", yes).toLowerCase();
+    var ans = window.prompt("Do you want numeric characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
       num = true;
@@ -71,7 +75,7 @@ function generatePassword() // added function
   var spec = false;
   while(true)
   {
-    var ans = window.prompt("Do you want special characters? (yes/no)", yes).toLowerCase();
+    var ans = window.prompt("Do you want special characters? (yes/no)", "yes").toLowerCase();
     if(ans=="yes")
     {
       spec = true;
@@ -83,7 +87,7 @@ function generatePassword() // added function
       window.alert("Invalid input! Try again.");
   }
 
-  
+
   return length;
 }
 // Write password to the #password input
